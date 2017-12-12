@@ -2,7 +2,7 @@
   <div id="productList">
     <div class="title">创睦案例库</div>
     <div>
-      <ul class="list list-inline">
+      <ul class="list list-inline" v-show="flag">
         <li class="col-lg-3 col-md-4 col-xs-12" v-for="(item,index) in ImgArr" v-if="ImgArr">
           <div class="listContent" @mouseover="appear(item)" @mouseleave="disappear(item)">
             <img :src=item.imagesUrl alt="">
@@ -10,14 +10,23 @@
               <div class="productInformation" v-show="item.supernatant">
                 <h3 class="secondTitle">{{item.title}}</h3>
                 <!--<p class="ProductIntro">此产品是很牛逼的一个产品</p>-->
-                <div><p @click="skip(item,$event)" class="look">点击查看{{index}}</p></div>
+                <div><p @click="skip(item,$event)" class="look">点击查看</p></div>
               </div>
+            </div>
+            <div class="mask" v-show="item.productInformationOne">
               <div class="productInformation" v-show="!item.supernatant">
                 <img :src="qr">
-                <div class="lookPC"><a :href="item.url" v-if="item.url" class="lookPC">点击查看PC端</a></div>
+                <div class="lookPC"><a :href="item.url" v-if="item.url" class="lookPC" target="_blank">点击查看PC端</a></div>
               </div>
             </div>
           </div>
+        </li>
+      </ul>
+      <ul  class="list list-inline" v-show="!flag">
+        <li class="col-lg-3 col-md-4 col-xs-12" v-for="(item,index) in ImgArr" v-if="ImgArr">
+          <a :href="item.mobileUrl" target="_blank">
+            <img :src="item.imagesUrl" alt="" class="mobileImages">
+          </a>
         </li>
       </ul>
       <div><img src="../../static/images/loading.gif" alt="" v-show="loading"></div>
@@ -37,14 +46,15 @@
         loading: false,
         qr: '',
         supernatant: true,
+        flag:flag,
 
       }
     },
     mounted() {
       console.log(flag);
       //页面进行初始化
-      this.initOne(1);
-      let vue = this, n = 1;
+      this.initOne(0);
+      let vue = this, n = 0;
       //滚动到底部自动加载
       $(window).on("resize scroll", function () {
         var $currentWindow = $(window);
@@ -54,7 +64,7 @@
         if (scrollTop + windowHeight >= docHeight) {
           n++;
           if (n == 4) {
-            return
+            return false;
           } else {
             vue.initOne(n)
           }
@@ -65,7 +75,9 @@
     methods: {
       appear: function (e) {
         e.productInformation = true;
-
+        if(e.productInformationOne){
+          e.productInformation = false;
+        }
       },
       disappear: function (e) {
         e.productInformation = false;
@@ -89,16 +101,16 @@
           //请求错误时做些事
           return Promise.reject(error)
         });
-        this.$axios.get('../../static/product.json')
+        this.$axios.get('static/product.json')
           .then(function (response) {
 
             arr = response.data;
-            me.ImgArr = [];
-            for (let i = 0; i <= 8 * n - 1; i++) {
+            var _arr = arr.slice(8*n,8 * (n+1));
+            for (let i = 0; i <= _arr.length-1; i++) {
               if (i >= 21) {
-                return false
+                break;
               } else {
-                me.ImgArr.push(response.data[i])
+                me.ImgArr.push(_arr[i]);
               }
             }
           })
@@ -107,8 +119,9 @@
           });
       },
       skip: function (e,ev) {
-        let dom = $(ev.currentTarget).parent().parent().siblings().find('img');
-        this.shareWX(e, e.mobileUrl,dom)
+        e.productInformationOne = true;
+        let dom = $(ev.currentTarget).parent().parent().parent().siblings().find('img');
+        this.shareWX(e, e.mobileUrl,dom);
       },
       //生成二维码
       shareWX(e, url,dom) {

@@ -5,8 +5,9 @@
     "intro": "",
     "url":"",
     "mobileUrl": "http://test.tron-m.com/canon/zhentan/index-max.html",
-    "imagesUrl": "../../static/images/01.jpg",
+    "imagesUrl": "static/images/01.jpg",
     "productInformation": false,
+    "productInformationOne": false,
     "supernatant":true
   },
   {
@@ -15,8 +16,9 @@
     "intro": "",
     "url": "http://test.tron-m.com/canon/170414-goujisonghua/PC/",
     "mobileUrl":"http://test.tron-m.com/canon/170414-goujisonghua/Mobile41",
-    "imagesUrl": "../../static/images/02.jpg",
+    "imagesUrl": "static/images/02.jpg",
     "productInformation": false,
+    "productInformationOne": false,
     "supernatant":true
   },
   {
@@ -25,8 +27,9 @@
     "intro": "",
     "url": "http://test.tron-m.com/canon/170414-zonghe/PC/",
     "mobileUrl":"http://test.tron-m.com/canon/170414-zonghe/Mobile",
-    "imagesUrl": "../../static/images/03.jpg",
+    "imagesUrl": "static/images/03.jpg",
     "productInformation": false,
+    "productInformationOne": false,
     "supernatant":true
   },
   {
@@ -35,8 +38,9 @@
     "intro": "",
     "url": "http://test.tron-m.com/canon/170628-cailifang/PC06-loop/",
     "mobileUrl":"http://test.tron-m.com/canon/170628-cailifang/Mobile16-loop/",
-    "imagesUrl": "../../static/images/04.jpg",
+    "imagesUrl": "static/images/04.jpg",
     "productInformation": false,
+    "productInformationOne": false,
     "supernatant":true
   },
   {
@@ -45,8 +49,9 @@
     "intro": "",
     "url": "http://test.tron-m.com/canon/170813-qinzishiguang/PC/",
     "mobileUrl":"http://test.tron-m.com/canon/170813-qinzishiguang/Mobile",
-    "imagesUrl": "../../static/images/05.jpg",
+    "imagesUrl": "static/images/05.jpg",
     "productInformation": false,
+    "productInformationOne": false,
     "supernatant":true
   },
   {
@@ -55,8 +60,9 @@
     "intro": "",
     "url": "",
     "mobileUrl":"http://test.tron-m.com/choice-novoice/",
-    "imagesUrl": "../../static/images/06.jpg",
+    "imagesUrl": "static/images/06.jpg",
     "productInformation": false,
+    "productInformationOne": false,
     "supernatant":true
   },
   {
@@ -65,8 +71,9 @@
     "intro": "",
     "url": "http://test.tron-m.com/canon/171107-yongai/PC/",
     "mobileUrl":"http://test.tron-m.com/canon/171107-yongai/Mobile/",
-    "imagesUrl": "../../static/images/07.jpg",
+    "imagesUrl": "static/images/07.jpg",
     "productInformation": false,
+    "productInformationOne": false,
     "supernatant":true
   },
   {
@@ -75,8 +82,9 @@
     "intro": "",
     "url": "",
     "mobileUrl":"http://test.tron-m.com/printphoto/",
-    "imagesUrl": "../../static/images/08.jpg",
+    "imagesUrl": "static/images/08.jpg",
     "productInformation": false,
+    "productInformationOne": false,
     "supernatant":true
   },
   {
@@ -85,8 +93,9 @@
     "intro": "",
     "url": "",
     "mobileUrl":"http://test.tron-m.com/tianyuan12/",
-    "imagesUrl": "../../static/images/09.jpg",
+    "imagesUrl": "static/images/09.jpg",
     "productInformation": false,
+    "productInformationOne": false,
     "supernatant":true
   },
   {
@@ -95,8 +104,9 @@
     "intro": "",
     "url": "",
     "mobileUrl":"http://test.tron-m.com/beautyfarm/voice2/",
-    "imagesUrl": "../../static/images/10.jpg",
+    "imagesUrl": "static/images/10.jpg",
     "productInformation": false,
+    "productInformationOne": false,
     "supernatant":true
   },
   {
@@ -105,8 +115,9 @@
     "intro": "",
     "url": "",
     "mobileUrl":"http://test.tron-m.com/yanzhong/20170602/mobile22/",
-    "imagesUrl": "../../static/images/11.jpg",
+    "imagesUrl": "static/images/11.jpg",
     "productInformation": false,
+    "productInformationOne": false,
     "supernatant":true
   },
   {
@@ -115,8 +126,9 @@
     "intro": "",
     "url": "",
     "mobileUrl":"http://test.tron-m.com/ctrip/yaoqinghan/",
-    "imagesUrl": "../../static/images/12.jpg",
+    "imagesUrl": "static/images/12.jpg",
     "productInformation": false,
+    "productInformationOne": false,
     "supernatant":true
   },
   {
@@ -125,8 +137,9 @@
     "intro": "",
     "url": "",
     "mobileUrl":"http://test.tron-m.com/apax",
-    "imagesUrl": "../../static/images/13.jpg",
+    "imagesUrl": "static/images/13.jpg",
     "productInformation": false,
+    "productInformationOne": false,
     "supernatant":true
   },
   {
@@ -135,8 +148,9 @@
     "intro": "",
     "url": "http://test.tron-m.com/oib/pc",
     "mobileUrl":"http://test.tron-m.com/oib/mobile",
-    "imagesUrl": "../../static/images/14.jpg",
+    "imagesUrl": "static/images/14.jpg",
     "productInformation": false,
+    "productInformationOne": false,
     "supernatant":true
   },
   {
@@ -145,8 +159,9 @@
     "intro": "",
     "url": "http://test.tron-m.com/shitong/170721-guanwang/PC/",
     "mobileUrl":"http://test.tron-m.com/shitong/170721-guanwang/PC/",
-    "imagesUrl": "../../static/images/15.jpg",
+    "imagesUrl": "static/images/15.jpg",
     "productInformation": false,
+    "productInformationOne": false,
     "supernatant":true
   },
   {
@@ -155,8 +170,9 @@
     "intro": "",
     "url": "http://test.tron-m.com/porsche/",
     "mobileUrl":"http://test.tron-m.com/porsche/",
-    "imagesUrl": "../../static/images/16.jpg",
+    "imagesUrl": "static/images/16.jpg",
     "productInformation": false,
+    "productInformationOne": false,
     "supernatant":true
   },
   {
@@ -165,8 +181,10 @@
     "intro": "",
     "url": "http://test.tron-m.com/nissan/20170817/mobile008/",
     "mobileUrl":"http://test.tron-m.com/nissan/20170817/mobile008/",
-    "imagesUrl": "../../static/images/17.jpg",
-    "productInformation": false
+    "imagesUrl": "static/images/17.jpg",
+    "productInformation": false,
+    "productInformationOne": false,
+    "supernatant":true
   },
   {
     "id": 17,
@@ -174,8 +192,9 @@
     "intro": "",
     "url": "http://test.tron-m.com/LiWang/home.html",
     "mobileUrl":"http://test.tron-m.com/LiWang/home.html",
-    "imagesUrl": "../../static/images/18.jpg",
+    "imagesUrl": "static/images/18.jpg",
     "productInformation": false,
+    "productInformationOne": false,
     "supernatant":true
   },
   {
@@ -184,8 +203,9 @@
     "intro": "",
     "url": "http://test.tron-m.com/Canon/",
     "mobileUrl":"http://test.tron-m.com/CanonMobile/",
-    "imagesUrl": "../../static/images/19.jpg",
+    "imagesUrl": "static/images/19.jpg",
     "productInformation": false,
+    "productInformationOne": false,
     "supernatant":true
   },
   {
@@ -194,18 +214,20 @@
     "intro": "",
     "url": "http://test.tron-m.com/CanonProduct/",
     "mobileUrl":"http://test.tron-m.com/CanonMobilePro/",
-    "imagesUrl": "../../static/images/20.jpg",
+    "imagesUrl": "static/images/20.jpg",
     "productInformation": false,
+    "productInformationOne": false,
     "supernatant":true
   },
   {
     "id": 20,
-    "title": "",
+    "title": "蜜丝佛陀",
     "intro": "",
-    "url": "zhangguoli@123.com",
-    "mobileUrl":"",
-    "imagesUrl": "../../static/images/21.jpg",
+    "url": "http://www.tron-m.com/maxfactor/",
+    "mobileUrl":"http://www.tron-m.com/maxfactor/",
+    "imagesUrl": "static/images/21.jpg",
     "productInformation": false,
+    "productInformationOne": false,
     "supernatant":true
   }
 ]
