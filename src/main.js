@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from '../node_modules/axios'
+import 'lib-flexible/flexible'
 import App from './App'
 import router from './router'
 Vue.prototype.$axios = axios;
