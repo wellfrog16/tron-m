@@ -12,5 +12,6 @@ function IsPC() {
   }
   return flag;
 }
-
-export let flag = IsPC()
+import Vue from 'vue';
+export let flag = IsPC();
+export let bus = new Vue();

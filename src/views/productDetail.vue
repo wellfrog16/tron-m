@@ -1,34 +1,7 @@
 <template>
   <div class="productDetail">
-    <header class="col-xs-12">
-      <div :class="{header:!searchShow,header1:searchShow}" class="col-xs-1 col-md-1 col-lg-1 logo">
-        <img src="../../static/images/logo.png" alt="logo" class="col-xs-6  col-xs-offset-6">
-      </div>
-      <div class="title" :class="{header:!searchShow,header1:searchShow}">{{title}}</div>
-      <div :class="{header:searchShow,header1:!searchShow}" class="searchInput col-xs-9 col-md-10 col-lg-11">
-        <div class="closeIcon col-xs-2 col-md-2 col-lg-1 col-sm-2" @click="close">
-          <div class="col-xs-10 col-md-6 col-sm-8 closeBg">
-            <div class="closeX">
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-        </div>
-        <input type="text" placeholder="请输入搜索内容" class="searchContent col-xs-12">
-      </div>
-      <div class="search col-xs-3 col-sm-2 col-md-2 col-lg-1">
-        <div class="searchIcon col-xs-6 col-sm-6">
-          <img src="../../static/images/search.png" alt="搜索" class="" @click="search">
-        </div>
-        <div class="nav col-xs-6 " @click="nav" :class="{navActive:navActive}">
-          <div>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-      </div>
-    </header>
+    <header1></header1>
+    <div class="productDetail2">
     <section class="col-xs-12 kv">
       <div class="kv1">
 
@@ -97,17 +70,17 @@
       <img src="../../static/images/casedemo-1.jpg" alt="" class="casedemo1">
       <img src="../../static/images/kvMobile.jpg" alt="" class="casedemo2">
     </section>
+    </div>
   </div>
 </template>
 
 <script>
+  import header1 from '../components/header.vue';
+  import { bus } from '../assets/judge';
   export default {
     name: 'productDetail',
     data() {
       return {
-        msg: 'Welcome to Your Vue.js App',
-        title: '佳能购机送花',
-        searchShow: false,
         imgArr: [
           {
             url: 'static/images/pclink.png',
@@ -171,28 +144,34 @@
             },
           },
         ],
-        navActive: false,
         wexin: false,
-        mobile:false
+        mobile: false,
+        title:'详情页名称'
       };
     },
+    components: {header1},
     mounted() {
       this.shareWX();
+      bus.$emit('change', this.title);
+      console.log(this.$route.params.id)
     },
     methods: {
+      //登录
+      userover: function (e) {
+        e.target.src = 'static/images/userover.png';
+      },
+      useron: function (e) {
+        e.target.src = 'static/images/useron.png';
+      },
       //分享点击事件
       share: function (i) {
         if (i == 2) {
           this.activeIcon = !this.activeIcon;
-          event.stopPropagation();
         }
 
       },
       search: function () {
-        this.searchShow = !this.searchShow;
-      },
-      close: function () {
-        this.searchShow = !this.searchShow;
+
       },
       //生成二维码
       shareWX: function () {
@@ -202,7 +181,7 @@
           console.log(error);
         });
       },
-      weiboShare: function (i,type) {  //3个参数：1要分享的内容，2分享的地址，3appkey
+      weiboShare: function (i, type) {  //3个参数：1要分享的内容，2分享的地址，3appkey
         if (i == 0) {
           let txtVal = '佳能圣诞';
           let url = 'http://www.canon.com.cn/special/lifestyle';
@@ -211,131 +190,17 @@
         if (i == 1 && type == 1) {
           this.wexin = !this.wexin;
         }
-        if(i == 1 && type == 2){
-          this.mobile = !this.mobile
+        if (i == 1 && type == 2) {
+          this.mobile = !this.mobile;
         }
-      },
-      nav: function () {
-        this.navActive = !this.navActive;
       },
     },
   };
 </script>
 <style lang="scss">
-  .productDetail {
+  .productDetail2 {
     max-width: 1920px;
-    header {
-      position: relative;
-      height: 90px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border: 1px solid #cccccc;
-      .title {
-        font-size: 36px;
-        font-weight: bold;
-        position: absolute;
-        letter-spacing: 4px;
-        top: 0;
-        width: 100%;
-        text-align: center;
-        line-height: 90px;
-        z-index: -1 !important;
-      }
-      .searchIcon {
-        cursor: pointer;
-        text-align: center;
-      }
-      .closeIcon {
-        cursor: pointer;
-        position: absolute;
-        height: 100%;
-        top: 0;
-        left: 0;
-        z-index: 9;
-        .closeBg {
-          height: 100%;
-          background-color: #000;
-          .closeX{
-            width: 100%;
-            position: absolute;
-            top: 50%;
-            margin-top: -4px !important;
-            margin-left: 2px;
-            span{
-              display: block;
-              background-color: #fff;
-              width: 40%;
-              height: 4px;
-              margin: 0 auto;
-              border-radius: 36px;
-            }
-            span:nth-child(1) {
-              transform-origin: 50% 50%;
-              transform: rotate(-45deg) translateX(-2.5px);
-              -webkit-transition: all 0.5s ease-in-out;
-              transition: all 0.5s ease-in-out;
-            }
-            span:nth-child(2) {
-              transform-origin: 50% 50%;
-              transform: rotate(45deg) translateX(-2.5px);
-              -webkit-transition: all 0.5s ease-in-out;
-              transition: all 0.5s ease-in-out;
-            }
-          }
-        }
-      }
-      .searchInput {
-        position: relative;
-        height: 100%;
-        font-size: 16px;
-        z-index: -1;
-      }
-      .search {
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        .nav {
-          background-color: #49c5b6;
-          height: 100%;
-          position: relative;
-          cursor: pointer;
-          div {
-            width: 100%;
-            position: absolute;
-            top: 50%;
-            margin-top: -12px;
-            span {
-              display: block;
-              background-color: #fff;
-              width: 40%;
-              height: 4px;
-              margin: 0 auto;
-              border-radius: 36px;
-            }
-            span:nth-child(2) {
-              margin: 6px auto 6px auto;
-            }
-          }
-
-        }
-      }
-    }
-    .searchContent {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      padding: 0 20px;
-      border: 0;
-      background-color: transparent;
-      font-size: 13px;
-      text-transform: uppercase;
-      line-height: normal;
-      text-align: right;
-    }
+    margin: 0 auto;
     .kv {
       position: relative;
       top: 0;
@@ -364,6 +229,7 @@
           float: left;
           margin-left: 15px;
           position: relative;
+          z-index:9;
           img {
             cursor: pointer;
           }
@@ -384,6 +250,10 @@
               height: 8px;
               background-color: #49c5b6;
               transform: rotate(45deg);
+              -webkit-transform: rotate(45deg); /* for Chrome || Safari */
+              -moz-transform:rotate(45deg); /* for Firefox */
+              -ms-transform: rotate(45deg); /* for IE */
+              -o-transform: rotate(45deg);
               position: absolute;
               bottom: -4px;
               left: 29px;
@@ -395,6 +265,7 @@
             top: 0;
             -webkit-transition: all 1.5s ease-in-out;
             transition: all 1.5s ease-in-out;
+            z-index:-1;
             li {
               margin-left: 15px;
               opacity: 0;
@@ -444,6 +315,10 @@
             height: 12px;
             background-color: #49c5b6;
             transform: rotate(45deg);
+            -webkit-transform: rotate(45deg); /* for Chrome || Safari */
+            -moz-transform:rotate(45deg); /* for Firefox */
+            -ms-transform: rotate(45deg); /* for IE */
+            -o-transform: rotate(45deg);
             position: absolute;
             bottom: -4px;
             left: 29px;
@@ -462,6 +337,10 @@
             height: 12px;
             background-color: #49c5b6;
             transform: rotate(45deg);
+            -webkit-transform: rotate(45deg); /* for Chrome || Safari */
+            -moz-transform:rotate(45deg); /* for Firefox */
+            -ms-transform: rotate(45deg); /* for IE */
+            -o-transform: rotate(45deg);
             position: absolute;
             bottom: -4px;
             left: 18px;
@@ -536,28 +415,7 @@
         margin-bottom: 160px;
       }
     }
-    .navActive {
-      div {
-        margin-top: -4px !important;
-        margin-left: 2px;
-        span:nth-child(1) {
-          transform-origin: 50% 50%;
-          transform: rotate(-45deg) translateX(-2px);
-          -webkit-transition: all 0.5s ease-in-out;
-          transition: all 0.5s ease-in-out;
-        }
-        span:nth-child(2) {
-          display: none !important;
-        }
-        span:nth-child(3) {
-          transform-origin: 50% 50%;
-          transform: rotate(45deg) translateX(-2.5px);
-          -webkit-transition: all 0.5s ease-in-out;
-          transition: all 0.5s ease-in-out;
-        }
-      }
 
-    }
     .weChat {
       opacity: 1;
       -webkit-transition: all 0.5s ease-in-out;
@@ -567,26 +425,6 @@
       opacity: 0;
       -webkit-transition: all 0.5s ease-in-out;
       transition: all 0.5s ease-in-out;
-    }
-    .header {
-      opacity: 1;
-      z-index: 999 !important;
-      -webkit-transition: all 0.8s ease-in-out;
-      transition: all 0.8s ease-in-out;
-
-    }
-    .header1 {
-      opacity: 0;
-      -webkit-transition: all 0.5s ease-in-out;
-      transition: all 0.5s ease-in-out;
-
-    }
-    .logo {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      transform: translateY(-50%);
-      z-index: 999;
     }
     .look {
       position: absolute;
@@ -612,15 +450,7 @@
       display: none;
     }
   }
-  @media screen and (min-width: 750px) and (max-width: 1200px) {
 
-  }
-  @media screen and  (max-width: 1200px){
-    .logo{
-      img{
-        width: 40px;}
-    }
-  }
   @media screen and (max-width: 750px) {
     .casedemo {
       img {
@@ -628,9 +458,6 @@
         padding: 0 !important;
         margin-bottom: 160px;
       }
-    }
-    .title {
-      display: none;
     }
     .casedemo1, .linkIcon {
       display: none;
@@ -648,12 +475,7 @@
       left: 0rem !important;
       bottom: 0.78125rem !important;
     }
-    header {
-      height: 60px !important;
-    }
-    .logo {
-      width: 40px;
-    }
+
     .productDetail .category {
       margin-bottom: 30px;
       margin-top: 30px;
@@ -668,11 +490,8 @@
     .productDetail .look {
       left: 0rem;
       bottom: 0.78125rem;
-    }
-    .searchIcon {
-      img {
-        height: 25px;
-      }
+      margin-bottom: 0;
+      padding: 0;
     }
   }
 </style>
