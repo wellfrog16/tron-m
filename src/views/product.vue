@@ -2,30 +2,30 @@
   <div id="productList1">
     <header1></header1>
     <div id="productList">
-      <div class="mobileClass">
-        <!--项目分类-->
-        <div data-toggle="collapse" data-target="#demo" class="ProjectClassification col-xs-offset-1 col-xs-10">
-          <span>所有项目分类</span><span class="glyphicon glyphicon-menu-down"></span>
-        </div>
-        <div id="demo" class="collapse col-xs-offset-1 col-xs-10 col-sm-12 col-sm-offset-0">
-          <a href="javascript:;">Html5</a>
-          <a href="javascript:;">Css3</a>
-          <a href="javascript:;">Javascript</a>
-          <a href="javascript:;">PHP</a>
-          <a href="javascript:;">Node.js</a>
-          <a href="javascript:;">Canon</a>
-          <a href="javascript:;">Responsive Design</a>
-        </div>
-      </div>
-      <div id="demo1" class="col-xs-offset-1 col-xs-10 col-sm-12 col-sm-offset-0">
-        <a href="javascript:;">Html5</a>
-        <a href="javascript:;">Css3</a>
-        <a href="javascript:;">Javascript</a>
-        <a href="javascript:;">PHP</a>
-        <a href="javascript:;">Node.js</a>
-        <a href="javascript:;">Canon</a>
-        <a href="javascript:;">Responsive Design</a>
-      </div>
+      <!--<div class="mobileClass">-->
+        <!--&lt;!&ndash;项目分类&ndash;&gt;-->
+        <!--&lt;!&ndash;<div data-toggle="collapse" data-target="#demo" class="ProjectClassification col-xs-offset-1 col-xs-10">&ndash;&gt;-->
+          <!--&lt;!&ndash;<span>所有项目分类</span><span class="glyphicon glyphicon-menu-down"></span>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;<div id="demo" class="collapse col-xs-offset-1 col-xs-10 col-sm-12 col-sm-offset-0">&ndash;&gt;-->
+          <!--&lt;!&ndash;<a href="javascript:;">Html5</a>&ndash;&gt;-->
+          <!--&lt;!&ndash;<a href="javascript:;">Css3</a>&ndash;&gt;-->
+          <!--&lt;!&ndash;<a href="javascript:;">Javascript</a>&ndash;&gt;-->
+          <!--&lt;!&ndash;<a href="javascript:;">PHP</a>&ndash;&gt;-->
+          <!--&lt;!&ndash;<a href="javascript:;">Node.js</a>&ndash;&gt;-->
+          <!--&lt;!&ndash;<a href="javascript:;">Canon</a>&ndash;&gt;-->
+          <!--&lt;!&ndash;<a href="javascript:;">Responsive Design</a>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+      <!--</div>-->
+      <!--<div id="demo1" class="col-xs-offset-1 col-xs-10 col-sm-12 col-sm-offset-0">-->
+        <!--<a href="javascript:;">Html5</a>-->
+        <!--<a href="javascript:;">Css3</a>-->
+        <!--<a href="javascript:;">Javascript</a>-->
+        <!--<a href="javascript:;">PHP</a>-->
+        <!--<a href="javascript:;">Node.js</a>-->
+        <!--<a href="javascript:;">Canon</a>-->
+        <!--<a href="javascript:;">Responsive Design</a>-->
+      <!--</div>-->
       <div>
         <ul class="list list-inline" v-show="flag">
           <li class="col-lg-3 col-md-4 col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-0 "
@@ -37,18 +37,19 @@
                 <div class="productInformation" v-show="item.supernatant">
                   <h3 class="secondTitle">{{item.title}}</h3>
                   <!--<p class="ProductIntro">此产品是很牛逼的一个产品</p>-->
-                  <div class="look"><router-link :to="{ name : 'productDetail', params : { id : 1 }}">点击查看</router-link></div>
+                  <div class="look" @click="skip(item,$event)">点击查看</div>
                 </div>
               </div>
-            <!--  <div class="mask" v-show="item.productInformationOne">
-                <div class="productInformation" v-show="!item.supernatant">
+              <div class="mask" v-show="item.productInformationOne">
+                <div class="productInformation">
                   <img :src="qr">
                   <div class="lookPC"><a :href="item.url" v-if="item.url" class="lookPC" target="_blank">点击查看PC端</a>
                   </div>
                 </div>
-              </div>-->
+              </div>
             </div>
-            <div class="mobileTitle"><router-link :to="{ name : 'productDetail', params : { id : 1 }}">{{item.title}}</router-link></div>
+            <!--<div class="mobileTitle"><router-link :to="{ name : 'productDetail', params : { id : 1 }}">{{item.title}}</router-link></div>-->
+            <div class="mobileTitle"><a :href="item.mobileUrl">{{item.title}}</a></div>
           </li>
         </ul>
         <ul class="list list-inline" v-show="!flag">
@@ -56,10 +57,11 @@
               v-for="(item,index) in ImgArr" v-if="ImgArr">
             <a :href="item.mobileUrl" target="_blank">
               <img :src="item.imagesUrl" alt="" class="mobileImages">
+              <div class="mobileTitle"><a :href="item.mobileUrl">{{item.title}}</a></div>
             </a>
           </li>
         </ul>
-        <div><img src="../../static/images/loading.gif" alt="" v-show="loading"></div>
+        <div class="loading"><img src="../../static/images/loading.gif" alt="" v-show="loading"></div>
       </div>
     </div>
   </div>
@@ -79,7 +81,7 @@
         qr: '',
         supernatant: true,
         flag: flag,
-        title:'创睦案例展示'
+        title:'量子创睦互动案例库'
 
       };
     },
@@ -137,9 +139,9 @@
           .then(function (response) {
 
             arr = response.data;
-            var _arr = arr.slice(8 * n, 8 * (n + 1));
+            var _arr = arr.slice(12 * n, 12 * (n + 1));
             for ( let i = 0; i <= _arr.length - 1; i++ ) {
-              if (i >= 21) {
+              if (i >= 20) {
                 break;
               } else {
                 me.ImgArr.push(_arr[i]);
@@ -152,7 +154,7 @@
       },
       skip: function (e, ev) {
         e.productInformationOne = true;
-        let dom = $(ev.currentTarget).parent().parent().parent().siblings().find('img');
+        let dom = $(ev.currentTarget).parent().parent().siblings().find('img');
         this.shareWX(e, e.mobileUrl, dom);
       },
       //生成二维码
@@ -174,6 +176,9 @@
   };
 </script>
 <style lang="scss">
+  #productList1{
+    margin: 0 auto;
+  }
   #productList {
     max-width: 1920px;
     margin: 0 50px;
@@ -206,10 +211,14 @@
               color: #fff;
               position: relative;
               top: 50%;
+              text-align: center;
               -webkit-transform: translateY(-50%); /* for Chrome || Safari */
               -moz-transform: translateY(-50%); /* for Firefox */
               -ms-transform: translateY(-50%); /* for IE */
               -o-transform: translateY(-50%);
+              img{
+                width:60%;
+              }
             }
           }
         }
@@ -334,6 +343,7 @@
     //padding-top: 50px;
     letter-spacing: 2px;
     color: #fff;
+    text-align: center;
   }
 
   .lookPC:hover {
@@ -343,7 +353,9 @@
   .mobileImages {
     width: 100%;
   }
-
+.loading{
+  text-align: center;
+}
   @media screen and (max-width: 768px) {
     #productList {
       margin: 0;

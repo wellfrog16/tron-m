@@ -11,6 +11,7 @@ import App from './App'
 import router from './router'
 Vue.prototype.$axios = axios;
 Vue.config.productionTip = false;
+Vue.prototype.HOST = '/apiOne'
 
 
 

@@ -6,20 +6,20 @@
           <router-link :to="{name:'productList'}">
             <img src="../../static/images/logo.png" alt="logo"class="col-xs-6  col-xs-offset-6"></router-link>
         </div>
-        <div class="title">{{title}}</div>
-        <div class="search col-xs-3 col-sm-2 col-md-2 col-lg-1 col-xs-offset-9 col-sm-offset-10 col-md-offset-10 col-lg-offset-11">
-          <div class="searchIcon col-xs-6 col-sm-6 logoIe">
-            <img src="../../static/images/useron.png" alt="搜索" class="" @click="search" @mouseover="userover($event)"
-                 @mouseout="useron($event)">
-          </div>
-          <div class="nav col-xs-6 " @click="nav" :class="{navActive:navActive}">
-            <div>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-        </div>
+        <div class="title">量子<span class="dian"></span>创睦互动案例库</div>
+        <!--<div class="search col-xs-3 col-sm-2 col-md-2 col-lg-1 col-xs-offset-9 col-sm-offset-10 col-md-offset-10 col-lg-offset-11">-->
+          <!--<div class="searchIcon col-xs-6 col-sm-6 logoIe" :class="{logoIe:isIe}">-->
+            <!--<img src="../../static/images/useron.png" alt="搜索" class="" @click="search" @mouseover="userover($event)"-->
+                 <!--@mouseout="useron($event)">-->
+          <!--</div>-->
+          <!--<div class="nav col-xs-6 " @click="nav" :class="{navActive:navActive}">-->
+            <!--<div>-->
+              <!--<span></span>-->
+              <!--<span></span>-->
+              <!--<span></span>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
       </header>
     </div>
   </div>
@@ -76,6 +76,14 @@
     justify-content: space-between;
     align-items: center;
     border: 1px solid #cccccc;
+    .dian{
+      border: 3px solid;
+      height: 5px;
+      display: inline-block;
+      border-radius: 50%;
+      margin: 0 10px;
+      margin-bottom: 8px;
+    }
     .title {
       display: block;
       font-size: 36px;
