@@ -101,6 +101,7 @@
       position: absolute;
       top:50%;
       transform: translateY(-50%);
+      z-index:100;
     }
     .search {
       height: 100%;

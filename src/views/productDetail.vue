@@ -1,6 +1,5 @@
 <template>
   <div class="productDetail">
-    <header1></header1>
     <div class="productDetail2">
     <section class="col-xs-12 kv">
       <div class="kv1">
@@ -75,7 +74,6 @@
 </template>
 
 <script>
-  import header1 from '../components/header.vue';
   import { bus } from '../assets/judge';
   export default {
     name: 'productDetail',
@@ -149,7 +147,6 @@
         title:'详情页名称'
       };
     },
-    components: {header1},
     mounted() {
       this.shareWX();
       bus.$emit('change', this.title);

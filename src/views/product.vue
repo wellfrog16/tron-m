@@ -1,6 +1,5 @@
 <template>
   <div id="productList1">
-    <header1></header1>
     <div id="productList">
       <div class="mobileClass">
         <!--项目分类-->
@@ -67,7 +66,7 @@
 
 <script>
   import { flag,bus } from '../assets/judge';
-  import header1 from '../components/header.vue';
+
 
   export default {
     name: 'productList',
@@ -137,7 +136,7 @@
           .then(function (response) {
 
             arr = response.data;
-            var _arr = arr.slice(8 * n, 8 * (n + 1));
+            var _arr = arr.slice(12 * n, 12 * (n + 1));
             for ( let i = 0; i <= _arr.length - 1; i++ ) {
               if (i >= 21) {
                 break;
@@ -169,11 +168,14 @@
         }
       },
     },
-    components: {header1},
 
   };
 </script>
 <style lang="scss">
+  #productList1{
+    max-width: 1920px;
+    margin: 0 auto;
+  }
   #productList {
     max-width: 1920px;
     margin: 0 50px;
