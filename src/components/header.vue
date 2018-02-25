@@ -4,7 +4,7 @@
       <header class="col-xs-12">
         <div class="col-xs-1 col-md-1 col-lg-1 logo" :class="{logoIe:isIe}">
           <router-link :to="{name:'productList'}">
-            <img src="../../static/images/logo.png" alt="logo"class="col-xs-6  col-xs-offset-6"></router-link>
+            <img src="../../static/images/logo.png" alt="logo" class="col-xs-6  col-xs-offset-6"></router-link>
         </div>
         <div class="title">量子<span class="dian"></span>创睦互动案例库</div>
         <!--<div class="search col-xs-3 col-sm-2 col-md-2 col-lg-1 col-xs-offset-9 col-sm-offset-10 col-md-offset-10 col-lg-offset-11">-->
@@ -200,7 +200,7 @@
   @media screen and (max-width: 1200px) {
     .logo {
       img {
-        width: 40px;
+        width: 60px;
       }
     }
   }
